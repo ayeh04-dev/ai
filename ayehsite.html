@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GlobalPulse</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="navbar">🌍 GlobalPulse News</div>
+
+ <ul class="nav-links">
+                <li><a href="glo.html">Home</a></li>
+            </ul>
+        </nav>
+
+<!-- HERO -->
+<div class="hero">
+    <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1600"
+         onerror="this.src='https://via.placeholder.com/1200x300'">
+    <h1>Breaking Global News</h1>
+</div>
+
+
+
+<!-- NEWS -->
+<div class="news-grid" id="news"></div>
+
+<script>
+
+const images = [
+ "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800",
+ "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800",
+ "https://images.unsplash.com/photo-1505842465776-3bfd188c0b03?w=800",
+ "https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=800"
+];
+
+/* SAMPLE NEWS (WORKS WITHOUT BACKEND) */
+const newsData = [
+  {
+    title: "AI is transforming global industries",
+    summary: "Artificial intelligence is reshaping economies worldwide."
+  },
+  {
+    title: "Global markets show strong recovery",
+    summary: "Stocks surge as investors regain confidence."
+  },
+  {
+    title: "Sports events attract global attention",
+    summary: "Major tournaments are drawing huge audiences."
+  },
+  {
+    title: "New tech innovations emerge daily",
+    summary: "Startups are leading the next wave of innovation."
+  }
+];
+
+/* LOAD NEWS WITH IMAGES */
+function loadNews(){
+    const container = document.getElementById("news");
+
+    newsData.forEach((n, i) => {
+        const image = images[i % images.length];
+
+        container.innerHTML += `
+            <div class="card">
+                <img src="${image}" 
+                     onerror="this.src='https://via.placeholder.com/400'">
+
+                <div class="card-content">
+                    <h3>${n.title}</h3>
+                    <p>${n.summary}</p>
+                </div>
+            </div>
+        `;
+    });
+}
+
+loadNews();
+
+</script>
+
+</body>
+</html>
